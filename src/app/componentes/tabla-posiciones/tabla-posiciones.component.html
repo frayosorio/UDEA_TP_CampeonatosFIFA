@@ -1,0 +1,15 @@
+<mat-toolbar class="mat-primary mat-toolbar-single-row mat-elevatmat-z8 color-barra" color="background">
+    <img src="../assets/imagenes/Logo FIFA.jpg" height="80px">
+    <div class="center">
+      Campeonatos FIFA
+    </div>
+  </mat-toolbar>
+  
+  <mat-form-field appearance="fill">
+    <mat-label>Campeonato</mat-label>
+    <mat-select [(value)]="idCampeonato">
+      <mat-option *ngFor="let campeonato of campeonatos" [value]="campeonato.id" >
+        {{campeonato.nombre}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
