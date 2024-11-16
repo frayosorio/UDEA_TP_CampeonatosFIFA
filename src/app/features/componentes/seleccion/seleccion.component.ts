@@ -6,6 +6,7 @@ import { Seleccion } from '../../../core/entidades/seleccion';
 import { SeleccionService } from '../../servicios/seleccion.service';
 import { MatDialog } from '@angular/material/dialog';
 import { SeleccionEditarComponent } from '../seleccion-editar/seleccion-editar.component';
+import { DecidirComponent } from '../../../shared/componentes/decidir/decidir.component';
 
 @Component({
   selector: 'app-seleccion',
@@ -149,7 +150,21 @@ export class SeleccionComponent {
   }
 
   public verificarEliminar() {
-
+    if (this.seleccionEscogida) {
+      const dialogoEdicion = this.dialogServicio.open(DecidirComponent, {
+        width: "400px",
+        height: "200px",
+        disableClose: true,
+        data: {
+          mensaje: `Eliminando la Selección ${this.seleccionEscogida?.nombre}. Está seguro?`,
+          id: this.seleccionEscogida.id
+        }
+      });
+      
+    }
+    else {
+      window.alert("Debe escoger una Selección");
+    }
   }
 
 }
